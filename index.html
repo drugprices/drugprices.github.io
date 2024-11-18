@@ -3,87 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drug Price Transparency</title>
+    <title>Drug Search</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
         }
 
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .search-bar {
+        .logo {
+            font-size: 40px;
+            font-weight: bold;
+            color: #007bff;
             margin-bottom: 20px;
         }
 
-        .search-bar input {
+        .search-bar {
             width: 100%;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-bar input {
+            flex-grow: 1;
             padding: 10px;
             font-size: 16px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar button {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .results {
             margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
         }
 
         .result-card {
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .result-card:last-child {
+            border-bottom: none;
         }
 
         .result-card h3 {
             margin: 0;
             font-size: 18px;
+            color: #333;
         }
 
         .result-card p {
             margin: 5px 0;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 15px;
-            margin-top: 10px;
-            color: white;
-            background-color: #007bff;
-            text-decoration: none;
-            border-radius: 5px;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Drug Price Transparency</h1>
-        <p>Find the best deals on prescription medications near you</p>
-    </header>
-    <div class="container">
-        <div class="search-bar">
-            <input type="text" id="drugInput" placeholder="Enter drug name (e.g., Lipitor)">
-        </div>
-        <button id="searchButton" class="button">Search</button>
-        <div class="results" id="results"></div>
+    <div class="logo">Drug Price Finder</div>
+    <div class="search-bar">
+        <input type="text" id="drugInput" placeholder="Search for a drug (e.g., Lipitor)">
+        <button id="searchButton">Search</button>
     </div>
+    <div class="results" id="results"></div>
 
     <script>
         const searchButton = document.getElementById('searchButton');
@@ -94,14 +100,14 @@
             resultsContainer.innerHTML = "<p>Loading results...</p>";
 
             try {
-                // Simulate fetching data from Google Sheets
+                // Placeholder for Google Sheets or API data
                 const data = [
                     { pharmacy: "Pharmacy A", price: "$10", address: "123 Main St", phone: "555-1234" },
                     { pharmacy: "Pharmacy B", price: "$12", address: "456 Elm St", phone: "555-5678" },
                     { pharmacy: "Pharmacy C", price: "$15", address: "789 Oak St", phone: "555-9012" }
                 ];
 
-                // Clear results and display fetched data
+                // Display results
                 resultsContainer.innerHTML = "";
                 data.forEach(item => {
                     const card = document.createElement('div');
