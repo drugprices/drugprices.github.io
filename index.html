@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drug Price Transparency</title>
+    <title>Drug Price Finder</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,18 +16,18 @@
         header {
             background-color: #007bff;
             color: white;
-            padding: 1em;
+            padding: 20px 0;
         }
         h1 {
             margin: 0;
         }
         .search-container {
-            margin: 20px 0;
+            margin: 20px auto;
+            max-width: 600px;
         }
         input[type="text"] {
             padding: 10px;
-            width: 80%;
-            max-width: 400px;
+            width: 100%;
             font-size: 16px;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -35,103 +35,38 @@
         .results-container {
             margin-top: 20px;
         }
-        .drug-card {
+        .result-card {
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 5px;
             margin: 10px auto;
             padding: 15px;
-            max-width: 400px;
+            max-width: 600px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: left;
         }
-        .drug-card h2 {
+        .result-card h2 {
             margin: 0;
-            font-size: 20px;
+            font-size: 18px;
         }
-        .drug-card p {
+        .result-card p {
             margin: 5px 0;
             font-size: 14px;
+        }
+        .result-card a {
+            color: #007bff;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Drug Price Transparency</h1>
-        <p>Find prices and details for drugs easily.</p>
+        <h1>Find Drug Prices</h1>
+        <p>Compare prices for medications at different pharmacies</p>
     </header>
 
     <div class="search-container">
-        <input type="text" id="searchBar" placeholder="Search for a drug...">
+        <input type="text" id="searchBar" placeholder="Search for a drug..." oninput="handleSearch()">
     </div>
 
-    <div class="results-container" id="resultsContainer">
-        <!-- Results will appear here -->
-    </div>
-
-    <script>
-        const sheetURL = 'https://docs.google.com/spreadsheets/d/e/YOUR_SHEET_ID_HERE/pub?output=tsv';
-
-        let data = []; // To store fetched data
-
-        // Fetch data from Google Sheets
-        async function fetchData() {
-            try {
-                const response = await fetch(sheetURL);
-                const text = await response.text();
-                const rows = text.split('\n').map(row => row.split('\t'));
-
-                // Parse data into objects for easy access
-                rows.slice(1).forEach(row => {
-                    data.push({
-                        drugName: row[0],
-                        manufacturer: row[1],
-                        price: row[2],
-                        source: row[3]
-                    });
-                });
-
-                // Show all data initially
-                displayResults(data);
-            } catch (error) {
-                console.error('Error fetching or processing data:', error);
-            }
-        }
-
-        // Display results in cards
-        function displayResults(results) {
-            const container = document.getElementById('resultsContainer');
-            container.innerHTML = ''; // Clear previous results
-
-            if (results.length === 0) {
-                container.innerHTML = '<p>No results found.</p>';
-                return;
-            }
-
-            results.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'drug-card';
-                card.innerHTML = `
-                    <h2>${item.drugName}</h2>
-                    <p><strong>Manufacturer:</strong> ${item.manufacturer}</p>
-                    <p><strong>Price:</strong> ${item.price}</p>
-                    <p><strong>Source:</strong> <a href="${item.source}" target="_blank">View</a></p>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        // Filter results based on search query
-        document.getElementById('searchBar').addEventListener('input', event => {
-            const query = event.target.value.toLowerCase();
-            const filteredResults = data.filter(item =>
-                item.drugName.toLowerCase().includes(query) ||
-                item.manufacturer.toLowerCase().includes(query)
-            );
-            displayResults(filteredResults);
-        });
-
-        fetchData();
-    </script>
-</body>
-</html>
+    <div class="res
