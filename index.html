@@ -3,70 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drug Price Finder</title>
+    <title>Drug Price Transparency</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: #f4f4f4;
         }
+
         header {
             background-color: #007bff;
             color: white;
-            padding: 20px 0;
+            padding: 20px;
+            text-align: center;
         }
-        h1 {
-            margin: 0;
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .search-container {
-            margin: 20px auto;
-            max-width: 600px;
+
+        .search-bar {
+            margin-bottom: 20px;
         }
-        input[type="text"] {
-            padding: 10px;
+
+        .search-bar input {
             width: 100%;
+            padding: 10px;
             font-size: 16px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 5px;
         }
-        .results-container {
+
+        .results {
             margin-top: 20px;
         }
+
         .result-card {
-            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
-            margin: 10px auto;
-            padding: 15px;
-            max-width: 600px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: left;
+            background: #fff;
         }
-        .result-card h2 {
+
+        .result-card h3 {
             margin: 0;
             font-size: 18px;
         }
+
         .result-card p {
             margin: 5px 0;
-            font-size: 14px;
         }
-        .result-card a {
-            color: #007bff;
+
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 10px;
+            color: white;
+            background-color: #007bff;
             text-decoration: none;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Find Drug Prices</h1>
-        <p>Compare prices for medications at different pharmacies</p>
+        <h1>Drug Price Transparency</h1>
+        <p>Find the best deals on prescription medications near you</p>
     </header>
-
-    <div class="search-container">
-        <input type="text" id="searchBar" placeholder="Search for a drug..." oninput="handleSearch()">
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="drugInput" placeholder="Enter drug name (e.g., Lipitor)">
+        </div>
+        <button id="searchButton" class="button">Search</button>
+        <div class="results" id="results"></div>
     </div>
 
-    <div class="res
+    <script>
+        const searchButton = document.getElementById('searchButton');
+        const resultsContainer = document.getElementById('results');
+
+        searchButton.addEventListener('click', async () => {
+            const drugName = document.getElementById('drugInput').value;
+            resultsContainer.innerHTML = "<p>Loading results...</p>";
+
+            try {
+                // Simulate fetching data from Google Sheets
+                const data = [
+                    { pharmacy: "Pharmacy A", price: "$10", address: "123 Main St", phone: "555-1234" },
+                    { pharmacy: "Pharmacy B", price: "$12", address: "456 Elm St", phone: "555-5678" },
+                    { pharmacy: "Pharmacy C", price: "$15", address: "789 Oak St", phone: "555-9012" }
+                ];
+
+                // Clear results and display fetched data
+                resultsContainer.innerHTML = "";
+                data.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'result-card';
+                    card.innerHTML = `
+                        <h3>${item.pharmacy}</h3>
+                        <p>Price: ${item.price}</p>
+                        <p>Address: ${item.address}</p>
+                        <p>Phone: ${item.phone}</p>
+                    `;
+                    resultsContainer.appendChild(card);
+                });
+            } catch (error) {
+                resultsContainer.innerHTML = "<p>Error fetching data. Please try again.</p>";
+            }
+        });
+    </script>
+</body>
+</html>
