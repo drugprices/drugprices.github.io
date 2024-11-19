@@ -1,136 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drug Price Finder</title>
-  <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      color: #333;
-    }
-
-    .container {
-      text-align: center;
-      width: 100%;
-      max-width: 600px;
-      padding: 20px;
-    }
-
-    .logo {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #007bff;
-      margin-bottom: 20px;
-    }
-
-    .search-bar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 20px 0;
-    }
-
-    .search-bar input {
-      width: 80%;
-      padding: 10px 15px;
-      font-size: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 50px;
-      outline: none;
-      transition: all 0.3s ease;
-    }
-
-    .search-bar input:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
-    }
-
-    .search-bar button {
-      margin-left: -50px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.2rem;
-      color: #007bff;
-      transition: color 0.3s ease;
-    }
-
-    .search-bar button:hover {
-      color: #0056b3;
-    }
-
-    .features {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .features a {
-      color: #007bff;
-      text-decoration: none;
-      margin: 0 10px;
-      transition: color 0.3s ease;
-    }
-
-    .features a:hover {
-      color: #0056b3;
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 0.8rem;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- Logo -->
-    <div class="logo">DrugFinder</div>
-
-    <!-- Search Bar -->
-    <div class="search-bar">
-      <input type="text" placeholder="Search for a drug..." id="drug-search">
-      <button onclick="searchDrug()">🔍</button>
-    </div>
-
-    <!-- Features Links -->
-    <div class="features">
-      <a href="#">About</a>
-      <a href="#">Pricing</a>
-      <a href="#">Help</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    © 2024 DrugFinder | All Rights Reserved
-  </footer>
-
-  <script>
-    function searchDrug() {
-      const drugName = document.getElementById('drug-search').value.trim();
-      if (drugName === "") {
-        alert("Please enter a drug name.");
-      } else {
-        alert(`Searching for "${drugName}"...`); // Placeholder functionality
-      }
-    }
-  </script>
-</body>
-</html>
+lement {
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  min-width: 400px;
+}
+body, input, button {
+  font-size: 14px;
+  font-family: Arial,sans-serif;
+  color: var(--COEmY);
+}
+body {
+  background: #fff;
+}
+:root {
+  --Yi4Nb: #d2d2d2;
+  --pEa0Bc: #474747;
+  --kloG3: #d2d2d2;
+  --YaIeMb: #f7f8f9;
+  --Pa8Wlb: #0b57d0;
+  --izGsqb: #0b57d0;
+  --todMNcl: #fff;
+  --p9J9c: #0b57d0;
+}
+:root {
+  --KIZPne: #a3c9ff;
+  --xPpiM: #001d35;
+  --Ehh4mf: var(--Nsm0ce);
+}
+:root {
+  --Yi4Nb: #d2d2d2;
+  --pEa0Bc: #474747;
+  --kloG3: #d2d2d2;
+  --YaIeMb: #f7f8f9;
+  --Pa8Wlb: #0b57d0;
+  --izGsqb: #0b57d0;
+  --todMNcl: #fff;
+  --p9J9c: #0b57d0;
+}
+:root {
+  --KIZPne: #a3c9ff;
+  --xPpiM: #001d35;
+  --Ehh4mf: var(--Nsm0ce);
+}
+:root {
+  --vZe0jb: #a8c7fa;
+  --nwXobb: #638ed4;
+  --VuZXBd: #001d35;
+  --uLz37c: #545d7e;
+  --jINu6c: #001d35;
+  --TyVYld: #0b57d0;
+  --ZEpPmd: #c3d9fb;
+  --QWaaaf: #638ed4;
+  --DEeStf: #f5f8ff;
+  --TSWZIb: #e5edff;
+  --BRLwE: #d3e3fd;
+  --gS5jXb: #dadce0;
+  --Aqn7xd: #d2d2d2;
+  --EpFNW: #fff;
+  --IXoxUe: #5e5e5e;
+  --bbQxAb: #474747;
+  --YLNNHc: #1f1f1f;
+  --TMYS9: #0b57d0;
+  --JKqx2: #1a0dab;
+  --rrJJUc: var(--Nsm0ce);
+  --mXZkqc: #d2d2d2;
+  --Nsm0ce: #0b57d0;
+  --XKMDxc: #f3f5f6;
+  --aYn2S: #f3f5f6;
+  --Lm570b: #dee1e3;
+}
+:root {
+  --COEmY: #1f1f1f;
+  --xhUGwc: #fff;
+}
+:root {
+  --vZe0jb: #a8c7fa;
+  --nwXobb: #638ed4;
+  --VuZXBd: #001d35;
+  --uLz37c: #545d7e;
+  --jINu6c: #001d35;
+  --TyVYld: #0b57d0;
+  --ZEpPmd: #c3d9fb;
+  --QWaaaf: #638ed4;
+  --DEeStf: #f5f8ff;
+  --TSWZIb: #e5edff;
+  --BRLwE: #d3e3fd;
+  --gS5jXb: #dadce0;
+  --Aqn7xd: #d2d2d2;
+  --EpFNW: #fff;
+  --IXoxUe: #5e5e5e;
+  --bbQxAb: #474747;
+  --YLNNHc: #1f1f1f;
+  --TMYS9: #0b57d0;
+  --JKqx2: #1a0dab;
+  --rrJJUc: var(--Nsm0ce);
+  --mXZkqc: #d2d2d2;
+  --Nsm0ce: #0b57d0;
+  --XKMDxc: #f3f5f6;
+  --aYn2S: #f3f5f6;
+  --Lm570b: #dee1e3;
+}
+:root {
+  --COEmY: #1f1f1f;
+  --xhUGwc: #fff;
+}
+margin
+border
+padding
+×
+761×615
+static
+    box-sizing
+    content-box
+    display
+    block
+    float
+    none
+    line-height
+    normal
+    position
+    static
+    z-index
+    auto
